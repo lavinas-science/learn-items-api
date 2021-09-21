@@ -10,5 +10,9 @@ require (
 
 require (
 	github.com/go-resty/resty/v2 v2.6.0 // indirect
+	github.com/josharian/intern v1.0.0 // indirect
+	github.com/mailru/easyjson v0.7.7 // indirect
+	github.com/olivere/elastic v6.2.37+incompatible // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4 // indirect
 )
