@@ -3,8 +3,9 @@ package app
 import (
 	"net/http"
 	"time"
-	
+
 	"github.com/gorilla/mux"
+	"github.com/lavinas-science/learn-items-api/clients/elasticsearch"
 )
 
 var (
@@ -12,6 +13,7 @@ var (
 )
 
 func StartApp () {
+	elasticsearch.Init()
 	mapUrls()
 	srv := &http.Server{
         Handler:      r,
