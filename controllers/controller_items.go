@@ -28,6 +28,13 @@ func (c *itemsController) Create(w http.ResponseWriter, r *http.Request) {
 		http_utils.RespondError(w, err)
 		return
 	}
+
+	if oauth.GetCallerId(r) == 0 {
+		rErr := rest_errors.NewUnauthorizedError("not authorized")
+		http_utils.RespondError(w, rErr)
+		return
+	}
+
 	rBody, rErr := ioutil.ReadAll(r.Body)
 	if rErr != nil {
 		restErr := rest_errors.NewBadRequestError("invalid request body")

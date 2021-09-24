@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/gorilla/mux v1.8.0
 	github.com/lavinas-science/learn-oauth-go v0.0.0-20210920223214-4b26f153c69b
-	github.com/lavinas-science/learn-utils-go v0.0.0-20210921211319-ca6da7bac35c
+	github.com/lavinas-science/learn-utils-go v0.0.0-20210924232554-ee6229142a9a
 	github.com/olivere/elastic v6.2.37+incompatible
 )
 
