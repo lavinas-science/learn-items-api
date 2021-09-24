@@ -1,8 +1,8 @@
 package app
 
 import (
-	"net/http"
 	"github.com/lavinas-science/learn-items-api/controllers"
+	"net/http"
 )
 
 func mapUrls() {

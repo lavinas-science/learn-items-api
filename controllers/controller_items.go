@@ -21,7 +21,7 @@ type itemsControllerInterface interface {
 	Get(w http.ResponseWriter, r *http.Request)
 }
 
-type itemsController struct {}
+type itemsController struct{}
 
 func (c *itemsController) Create(w http.ResponseWriter, r *http.Request) {
 	if err := oauth.AuthenticateRequest(r); err != nil {
@@ -34,15 +34,12 @@ func (c *itemsController) Create(w http.ResponseWriter, r *http.Request) {
 		http_utils.RespondError(w, restErr)
 	}
 	defer r.Body.Close()
-	
 	var it items.Item
 	if err := json.Unmarshal(rBody, &it); err != nil {
 		restErr := rest_errors.NewBadRequestError("invalid json body")
 		http_utils.RespondError(w, restErr)
 	}
-	it = items.Item {
-		Seller: oauth.GetCallerId(r),
-	}
+	it.Seller = oauth.GetCallerId(r)
 	ic, err := services.ItemsService.Create(it)
 	if err != nil {
 		http_utils.RespondError(w, err)

@@ -2,8 +2,10 @@ package elasticsearch
 
 import (
 	"context"
+	"fmt"
 	"time"
 
+	"github.com/lavinas-science/learn-utils-go/logger"
 	"github.com/olivere/elastic"
 )
 
@@ -13,16 +15,21 @@ var (
 
 type esClientInterface interface {
 	setClient(*elastic.Client)
-	Index(interface{}) (*elastic.IndexResponse, error)
+	Index(string, interface{}) (*elastic.IndexResponse, error)
 }
 
 type esClient struct {
 	client *elastic.Client
 }
 
-func (c *esClient) Index(interface{}) (*elastic.IndexResponse, error) {
+func (c *esClient) Index(index string, doc interface{}) (*elastic.IndexResponse, error) {
 	ctx := context.Background()
-	return c.client.Index().Do(ctx)
+	r, err := c.client.Index().Type("item").Index(index).BodyJson(doc).Do(ctx)
+	if err != nil {
+		logger.Error(fmt.Sprintf("error elasticSearch indexing %s", index), err)
+		return nil, err
+	}
+	return r, nil
 }
 
 func (c *esClient) setClient(ec *elastic.Client) {
@@ -35,7 +42,7 @@ func Init() {
 		elastic.SetHealthcheckInterval(10*time.Second),
 		// elastic.SetErrorLog(log.New(os.Stderr, "ELASTIC ", log.LstdFlags)),
 		// elastic.SetInfoLog(log.New(os.Stdout, "", log.LstdFlags)),
-	  )
+	)
 	if err != nil {
 		panic(err)
 	}
