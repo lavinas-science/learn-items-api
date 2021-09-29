@@ -19,6 +19,8 @@ github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
 github.com/lavinas-science/learn-oauth-go v0.0.0-20210920223214-4b26f153c69b h1:CRJlO+vlL/yG3JAbZW4CIvawZa2jVB5J0hQy+sXixBM=
 github.com/lavinas-science/learn-oauth-go v0.0.0-20210920223214-4b26f153c69b/go.mod h1:qWVZqfz0ViGj8uB4mdxTn5vC8CqWQdx/hInsyhhI8DU=
+github.com/lavinas-science/learn-oauth-go v0.0.0-20210929180720-097d130611a6 h1:Hdb70H+kUW6vydg4IzY/tLeAOwx7wc74YwEN6SnNOUY=
+github.com/lavinas-science/learn-oauth-go v0.0.0-20210929180720-097d130611a6/go.mod h1:kKJDMQDbcJORaVcltgpa9sOZtaE/ZJq8d5x/ibZKSrY=
 github.com/lavinas-science/learn-utils-go v0.0.0-20210920210638-946c3091aa08/go.mod h1:8oJwhvN2HIK2VKvqCAiUrpbjUoYEBYqF6FQnakWLjzk=
 github.com/lavinas-science/learn-utils-go v0.0.0-20210924232554-ee6229142a9a h1:fpnmuVrgEFr2PnFfA3YA6cK2cHZZ5J4U3g+Jo6w2gAw=
 github.com/lavinas-science/learn-utils-go v0.0.0-20210924232554-ee6229142a9a/go.mod h1:OAC9exeYukw9cWGqFdwRXkFybwo45TMIG7lwtThazV8=
@@ -26,6 +28,8 @@ github.com/lavinas-science/learn-utils-go v0.0.0-20210925002817-5fa66824618b h1:
 github.com/lavinas-science/learn-utils-go v0.0.0-20210925002817-5fa66824618b/go.mod h1:OAC9exeYukw9cWGqFdwRXkFybwo45TMIG7lwtThazV8=
 github.com/lavinas-science/learn-utils-go v0.0.0-20210928200459-ae31291b5118 h1:VyDyOMd5lG6Aj4nvoRINoT2OuMUigRNZTS5MYxO3SWw=
 github.com/lavinas-science/learn-utils-go v0.0.0-20210928200459-ae31291b5118/go.mod h1:OAC9exeYukw9cWGqFdwRXkFybwo45TMIG7lwtThazV8=
+github.com/lavinas-science/learn-utils-go v0.0.0-20210929175044-9a20743fedfe h1:A8DECzkGQYMrbqoO8IWCNXCfTRiPRK26bwPROCYemLc=
+github.com/lavinas-science/learn-utils-go v0.0.0-20210929175044-9a20743fedfe/go.mod h1:OAC9exeYukw9cWGqFdwRXkFybwo45TMIG7lwtThazV8=
 github.com/mailru/easyjson v0.7.7 h1:UGYAvKxe3sBsEDzO8ZeWOSlIQfWFlxbzLZe7hwFURr0=
 github.com/mailru/easyjson v0.7.7/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
 github.com/olivere/elastic v6.2.37+incompatible h1:UfSGJem5czY+x/LqxgeCBgjDn6St+z8OnsCuxwD3L0U=
@@ -59,6 +63,8 @@ golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn
 golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
 golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4 h1:4nGaVu0QrbjT/AK2PRLuQfQuh6DJve+pELhqTdAj3x0=
 golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4/go.mod h1:p54w0d4576C0XHj96bSt6lcn1PtDYWL6XObtHCRCNQM=
+golang.org/x/net v0.0.0-20210929161516-d455829e376d h1:4gCyLGvL7o9vHcuPrYJzrsR60Zqgrtr0BRhNFpHwf04=
+golang.org/x/net v0.0.0-20210929161516-d455829e376d/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
 golang.org/x/sync v0.0.0-20190423024810-112230192c58/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20210220032951-036812b2e83c/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
