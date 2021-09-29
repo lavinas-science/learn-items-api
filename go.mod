@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/gorilla/mux v1.8.0
 	github.com/lavinas-science/learn-oauth-go v0.0.0-20210929180720-097d130611a6
-	github.com/lavinas-science/learn-utils-go v0.0.0-20210929175044-9a20743fedfe
+	github.com/lavinas-science/learn-utils-go v0.0.0-20210929210835-7d8459f50063
 	github.com/olivere/elastic v6.2.37+incompatible
 )
 
@@ -19,5 +19,5 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.7.0 // indirect
 	go.uber.org/zap v1.19.1 // indirect
-	golang.org/x/net v0.0.0-20210929161516-d455829e376d // indirect
+	golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6 // indirect
 )
