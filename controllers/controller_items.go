@@ -4,12 +4,14 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/lavinas-science/learn-items-api/domain/items"
 	"github.com/lavinas-science/learn-items-api/services"
 	"github.com/lavinas-science/learn-oauth-go/oauth"
 	http_utils "github.com/lavinas-science/learn-utils-go/http"
 	"github.com/lavinas-science/learn-utils-go/rest_errors"
+	"github.com/gorilla/mux"
 )
 
 var (
@@ -28,13 +30,11 @@ func (c *itemsController) Create(w http.ResponseWriter, r *http.Request) {
 		http_utils.RespondError(w, err)
 		return
 	}
-
 	if oauth.GetCallerId(r) == 0 {
 		rErr := rest_errors.NewUnauthorizedError("not authorized")
 		http_utils.RespondError(w, rErr)
 		return
 	}
-
 	rBody, rErr := ioutil.ReadAll(r.Body)
 	if rErr != nil {
 		restErr := rest_errors.NewBadRequestError("invalid request body")
@@ -56,5 +56,23 @@ func (c *itemsController) Create(w http.ResponseWriter, r *http.Request) {
 }
 
 func (c *itemsController) Get(w http.ResponseWriter, r *http.Request) {
+	/*
+	if err := oauth.AuthenticateRequest(r); err != nil {
+		http_utils.RespondError(w, err)
+		return
+	}
+	if oauth.GetCallerId(r) == 0 {
+		rErr := rest_errors.NewUnauthorizedError("not authorized")
+		http_utils.RespondError(w, rErr)
+		return
+	}
+	*/
+	vars := mux.Vars(r)
+	id := strings.TrimSpace(vars["id"])
+	it, err := services.ItemsService.Get(id)
+	if err != nil {
+		http_utils.RespondError(w, err)
+	}
+	http_utils.RespondJson(w, http.StatusOK, it)
 
 }

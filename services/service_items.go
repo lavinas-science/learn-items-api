@@ -22,6 +22,10 @@ func (s *itemsService) Create(it items.Item) (*items.Item, rest_errors.RestErr) 
 	return &it, nil
 }
 
-func (s *itemsService) Get(string) (*items.Item, rest_errors.RestErr) {
-	return nil, rest_errors.NewNotImplementedError("not implemented")
+func (s *itemsService) Get(id string) (*items.Item, rest_errors.RestErr) {
+	it := items.Item{Id: id}
+	if err := it.Get(); err != nil {
+		return nil, err
+	}
+	return &it, nil
 }

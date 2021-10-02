@@ -15,16 +15,27 @@ var (
 
 type esClientInterface interface {
 	setClient(*elastic.Client)
-	Index(string, interface{}) (*elastic.IndexResponse, error)
+	Index(string, string, interface{}) (*elastic.IndexResponse, error)
+	Get(string, string, string)(*elastic.GetResult, error)
 }
 
 type esClient struct {
 	client *elastic.Client
 }
 
-func (c *esClient) Index(index string, doc interface{}) (*elastic.IndexResponse, error) {
+func (c *esClient) Index(index string, docType string, doc interface{}) (*elastic.IndexResponse, error) {
 	ctx := context.Background()
-	r, err := c.client.Index().Type("item").Index(index).BodyJson(doc).Do(ctx)
+	r, err := c.client.Index().Type(docType).Index(index).BodyJson(doc).Do(ctx)
+	if err != nil {
+		logger.Error(fmt.Sprintf("error elasticSearch indexing %s", index), err)
+		return nil, err
+	}
+	return r, nil
+}
+
+func (c *esClient) Get (index string, docType string, id string) (*elastic.GetResult, error)  {
+	ctx := context.Background()
+	r, err := c.client.Get().Index(index).Type(docType).Id(id).Do(ctx)
 	if err != nil {
 		logger.Error(fmt.Sprintf("error elasticSearch indexing %s", index), err)
 		return nil, err
