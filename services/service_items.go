@@ -2,6 +2,7 @@ package services
 
 import (
 	"github.com/lavinas-science/learn-items-api/domain/items"
+	"github.com/lavinas-science/learn-items-api/domain/queries"
 	"github.com/lavinas-science/learn-utils-go/rest_errors"
 )
 
@@ -12,6 +13,7 @@ var (
 type ItemsServiceInterface interface {
 	Create(items.Item) (*items.Item, rest_errors.RestErr)
 	Get(string) (*items.Item, rest_errors.RestErr)
+	Search(queries.EsQuery) ([]items.Item, rest_errors.RestErr)
 }
 type itemsService struct{}
 
@@ -28,4 +30,9 @@ func (s *itemsService) Get(id string) (*items.Item, rest_errors.RestErr) {
 		return nil, err
 	}
 	return &it, nil
+}
+
+func (s *itemsService) Search(q queries.EsQuery) ([]items.Item, rest_errors.RestErr) {
+	i := items.Item{}
+	return i.Search(q)
 }
