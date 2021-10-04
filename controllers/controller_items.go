@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/gorilla/mux"
 	"github.com/lavinas-science/learn-items-api/domain/items"
 	"github.com/lavinas-science/learn-items-api/services"
 	"github.com/lavinas-science/learn-oauth-go/oauth"
 	http_utils "github.com/lavinas-science/learn-utils-go/http"
 	"github.com/lavinas-science/learn-utils-go/rest_errors"
-	"github.com/gorilla/mux"
 )
 
 var (
@@ -72,7 +72,7 @@ func (c *itemsController) Get(w http.ResponseWriter, r *http.Request) {
 	it, err := services.ItemsService.Get(id)
 	if err != nil {
 		http_utils.RespondError(w, err)
+		return
 	}
 	http_utils.RespondJson(w, http.StatusOK, it)
-
 }
